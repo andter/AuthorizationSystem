@@ -10,7 +10,8 @@
 
     function loginService($http) {
         var service = {
-            login: login
+            login: login,
+            newUser: newUser
         };
 
         return service;
@@ -21,6 +22,14 @@
                 method: 'POST',
                 url: '/user/login',
                 data: credentials
+            });
+        }
+
+        function newUser(user) {
+            return $http({
+                method: 'POST',
+                url: '/user/new',
+                data: user
             });
         }
     }

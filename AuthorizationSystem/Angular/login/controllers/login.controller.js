@@ -19,13 +19,11 @@
         function activate() { }
 
         function submit() {
-            var credentials = {};
-            credentials.username = vm.credentials.username;
-            credentials.password = vm.credentials.password;
-            loginService.login(credentials)
+            loginService.login({ email: vm.credentials.email, password: vm.credentials.password })
             .then(function success(response) {
 
             }, function error(response) {
+
             });;
         }
     }
