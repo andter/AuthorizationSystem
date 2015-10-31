@@ -11,7 +11,7 @@
     function loginService($http) {
         var service = {
             login: login,
-            newUser: newUser
+            signup: signup
         };
 
         return service;
@@ -25,11 +25,11 @@
             });
         }
 
-        function newUser(user) {
+        function signup(credentials) {
             return $http({
                 method: 'POST',
                 url: '/user/new',
-                data: user
+                data: credentials
             });
         }
     }

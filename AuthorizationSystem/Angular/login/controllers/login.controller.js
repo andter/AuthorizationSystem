@@ -12,18 +12,39 @@
         /* jshint validthis:true */
         var vm = this;
         vm.credentials = {};
-        vm.submit = submit;
+        vm.loginClick = loginClick;
+        vm.login = login;
+        vm.signupClick = signupClick;
+        vm.signup = signup;
 
+        vm.state = 0;
         activate();
 
         function activate() { }
 
-        function submit() {
+        function login() {
             loginService.login({ email: vm.credentials.email, password: vm.credentials.password })
             .then(function success(response) {
-
+                console.log(response);
             }, function error(response) {
+                console.log(response);
+            });;
+        }
 
+        function loginClick() {
+            vm.state = 0;
+        }
+
+        function signupClick() {
+            vm.state = 1;
+        }
+
+        function signup() {
+            loginService.signup({ email: vm.credentials.email, password: vm.credentials.password })
+            .then(function success(response) {
+                console.log(response);
+            }, function error(response) {
+                console.log(response);
             });;
         }
     }
